@@ -1,18 +1,18 @@
 
-using System;
+#include <algorithm>
+using namespace std;
 
-public class Solution
-{
-    public int MaximizeSum(int[] input, int numberOfOperations)
-    {
+class Solution {
+
+public:
+    int maximizeSum(vector<int>& input, int numberOfOperations) const {
         int maxValue = 0;
-        foreach (int value in input)
-        {
-            maxValue = Math.Max(maxValue, value);
+        for (const auto& value : input) {
+            maxValue = max(maxValue, value);
         }
         // (numberOfOperations - 1) * numberOfOperations / 2
         // sum of all members of arithmetic progression, where
         // firstMember = 1, step = 1, totalMembers = numberOfOperations - 1
         return maxValue * numberOfOperations + (numberOfOperations - 1) * numberOfOperations / 2;
     }
-}
+};
